@@ -52,5 +52,6 @@ thead th{
 }
 
 table tbody tr td{
-	font-size: 0.35rem;
+	font-size: 0.75rem;
+	border: 1px solid #ccc;
 }

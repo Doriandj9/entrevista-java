@@ -57,21 +57,18 @@ public class Product{
         String password = "1234";
         
         try {
-            // Codificar las credenciales en Base64
             String credentials = username + ":" + password;
             String encodedCredentials = Base64.getEncoder().encodeToString(credentials.getBytes());
-
-            // Crear la URL de la API
             URL url = new URL(apiUrl);
 
-            // Abrir una conexión HTTP
+          
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
-            // Agregar el encabezado de autenticación Basic Auth
+       
             connection.setRequestProperty("Authorization", "Basic " + encodedCredentials);
 
-            // Obtener la respuesta de la API
+
             int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -82,8 +79,6 @@ public class Product{
                     response.append(inputLine);
                 }
                 in.close();
-
-                // Procesar el JSON de respuesta
                 String jsonResponse = response.toString();
                 return jsonResponse;
             } else {
@@ -164,7 +159,7 @@ public class Product{
 		ArrayList<DataProducts> products = this.getDataProducts();
 		Comparator<DataProducts > comparator =(p1,p2) -> Integer.compare(p2.getQuantityOnHand(), p1.getQuantityOnHand());
 		Collections.sort(products, comparator);
-		List<DataProducts> subList = products.subList(1, 10);
+		List<DataProducts> subList = products.subList(0, 10);
 		ArrayList<DataProducts> finalRes = new ArrayList<DataProducts>(subList);
 		this.setDataProducts(finalRes);
 		return this;
