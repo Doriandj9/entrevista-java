@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body,html{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: white;
+	color: #202020;
+}
+
+.header{
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo{
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+.logo span:first-child{
+	color: brown;
+}
+.logo span:last-child{
+	color: darkslategray;
+}
+.header > .nav{
+	flex-grow: 1;
+	text-align: center;
+}
+
+.nav ul{
+	list-style: none;
+}
+
+.nav ul li a{
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: brown;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+thead th{
+	border: 1px solid #ccc;
+	font-size: 1rem;
+}
+
+table tbody tr td{
+	font-size: 0.35rem;
+}
